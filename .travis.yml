@@ -1,22 +1,30 @@
 language: node_js
 node_js:
-  - "5"
-  - "4"
-  - "0.12"
-  - "0.11"
-  - "0.10"
-  - "iojs"
+- '5'
+- '4'
+- '0.12'
+- '0.11'
+- '0.10'
+- iojs
 services:
-  - mongodb
+- mongodb
 before_script:
-  - sleep 10
-  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+- sleep 10
+- mongo mydb_test --eval 'db.addUser("travis", "test");'
 script:
-  - npm run build
-  - npm run test-babel
+- npm run build
+- npm run test-babel
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
+    - g++-4.8
+deploy:
+  provider: npm
+  email: okvic77@me.com
+  api_key:
+    secure: Zgs3gwPi8QtqvB28FAfku62XZb+9qcIiNIk2UQqnQY3+YPtQUq8jQt6irSd/fDGB7byXvP+CmEDUevOe0MqpecoPAWkpaNojp8N6k/uh/wGTFk5b9lsm7favsaoELIAzA/q6sCi8G1c4Fc4pozcqZgvGWQFYCuJQk6v9hGlAYszJgmIeY+ywQO9n7akW4a+TIYPMLkU27DxlfW+xtLlfKhyblUWTcDA/Zv7IiqIhQFADtqqCORQLF6TFKNGZM6Yx1IFNt1HJTx/+x4cC1m8Y1Lrx1+tY7KsM+9u28iCIiQ9YNKwBCqIuXn9lC/dYTmDbiPjoziNgjOXO9zUZHpDFusHp61vdMaM6tLhq/Cnc3GQeawM9oFNL9iMCWKpislftXvXnTd3WJEGqb96yLy1ijfmrbBfC1Y1kByoJ/tMM2oX0sSy+lGNysozfY294uQxYd8058NsNAXRHTaKvhOCUlMsUhWE3kPc4y7SM9xCRqle2na3zvMcrDbmKDBfD3svfCGPDuAKWiiscJV81+GJZCMqZgmZwJ4EDiN+LShLsBnnvOt35juFGUXXiExG4bi0omKy3IEhXFWBIrhKcjqAccomcUwbqdACLx9J/vCRILHHr+O9duwh94TpxdOfF9/ezzi/2ehOpsAFB+TFVdRmHHOLSSVWPsfcXbHHDLl8GMjc=
+  on:
+    tags: true
+    repo: okvic77/express-js-data
