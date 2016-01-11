@@ -141,7 +141,6 @@ describe('action on collection', function() {
       res.statusCode.should.equal(200);
       should(data.ok).be.exactly(1)
       should(data.n).be.exactly(3)
-      should(data.nModified).be.exactly(2)
       done(err);
     });
   })
