@@ -22,7 +22,7 @@ var api, app;
 
 
 before('connect to database', function(done) {
-  mongoose.connect('mongodb://docker/bridge', done);
+  mongoose.connect(process.env.MONGODB || 'mongodb://localhost:27017/bridge', done);
 })
 
 before('clean data', function(done) {
