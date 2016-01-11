@@ -1,5 +1,7 @@
 # express-js-data
 
+[![Build Status](https://travis-ci.org/okvic77/express-js-data.svg?branch=master)](https://travis-ci.org/okvic77/express-js-data)
+
 ```javascript
 let model = (/* some mongoose model*/)
   var bridge = new Bridge({
