@@ -139,9 +139,9 @@ describe('action on collection', function() {
       }
     }, function(err, res, data) {
       res.statusCode.should.equal(200);
-      data.ok.should.be.exactly(1)
-      data.n.should.be.exactly(3)
-      data.nModified.should.be.exactly(2)
+      should(data.ok).be.exactly(1)
+      should(data.n).be.exactly(3)
+      should(data.nModified).be.exactly(2)
       done(err);
     });
   })
@@ -150,8 +150,8 @@ describe('action on collection', function() {
   it(`delete`, function(done) {
     api.del(`/bridge/data`, function(err, res, data) {
       res.statusCode.should.equal(200);
-      data.n.should.be.exactly(3)
-      data.ok.should.be.exactly(1)
+      should(data.n).be.exactly(3)
+      should(data.ok).be.exactly(1)
       done(err);
     });
   })
