@@ -29,3 +29,6 @@ deploy:
     tags: true
     repo: okvic77/express-js-data
     node: '5'
+branches:
+  only:
+    - stable
