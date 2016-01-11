@@ -12,5 +12,12 @@ services:
 before_script:
   - sleep 10
   - mongo mydb_test --eval 'db.addUser("travis", "test");'
-  - npm build
-script: npm test
+script:
+  - npm run build
+  - npm test
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
