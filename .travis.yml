@@ -28,3 +28,4 @@ deploy:
   on:
     tags: true
     repo: okvic77/express-js-data
+    node: '5'
