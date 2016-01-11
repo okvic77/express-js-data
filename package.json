@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha test/run.js",
     "build": "babel src -d lib",
-    "watch": "babel src -d lib --watch"
+    "watch": "babel src -d lib --watch",
+    "test-babel": "babel-node test/index.js"
   },
   "notes": [
     "nodemon --watch lib --watch test -x 'npm test' --delay 2s"

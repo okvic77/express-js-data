@@ -14,7 +14,7 @@ before_script:
   - mongo mydb_test --eval 'db.addUser("travis", "test");'
 script:
   - npm run build
-  - npm test
+  - npm run test-babel
 addons:
   apt:
     sources:

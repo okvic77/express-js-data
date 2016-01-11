@@ -1,4 +1,5 @@
 "use strict";
+
 var should = require('should'),
 
   //var assert = require('assert'),
@@ -18,7 +19,7 @@ var db = require('./mongoose');
 var Bridge = require('../lib').default;
 
 
-var api, app;
+var api, app, server;
 
 
 before('connect to database', function(done) {
@@ -38,7 +39,7 @@ before('run server', function(done) {
   app.get('/', function(req, res) {
     res.send('hi');
   });
-  app.listen(process.env.PORT || 3000, function(err) {
+  server = app.listen(process.env.PORT || 3000, function(err) {
     api = request.defaults({
       baseUrl: `http://localhost:${this.address().port}/`,
       json: true
@@ -156,4 +157,13 @@ describe('action on collection', function() {
   })
 
 
+});
+
+
+after(function(done) {
+  server.close(done)
+});
+
+after(function(done) {
+  mongoose.connection.close(done)
 });
