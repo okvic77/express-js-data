@@ -2,41 +2,6 @@ import { Router } from 'express'
 import _ from 'underscore'
 
 
-class Mongoose {
-  constructor() {
-
-  }
-
-  get() {
-
-  }
-
-  getAll() {
-
-  }
-
-  create() {
-
-  }
-
-  update() {
-
-  }
-
-  updateAll() {
-
-  }
-
-  delete() {
-
-  }
-
-  deleteAll() {
-
-  }
-
-}
-
 class Bridge {
   constructor(data) {
     this.id = '_id';
