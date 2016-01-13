@@ -36,8 +36,30 @@ class Bridge {
     });
 
     this.router.route('/:resource').get(function(req, res, next) {
-      var options = {};
-      req.model.find({}, {}, options, function (err, result) {
+      var options = req.query;
+      var advanced = {
+        limit: options.limit,
+        skip: options.offset,
+        lean: true
+      }
+
+      // TODO add tests for advanced query
+
+      try {
+        advanced.sort = JSON.parse(options.orderBy);
+      } catch (e) {
+
+      } finally {
+
+      }
+
+      var query = req.model.find(options.where, options.fields, advanced);
+
+
+      // TODO with query populate
+
+      
+      query.exec(function (err, result) {
         if (err) return next(result);
         res.json(result)
       })
